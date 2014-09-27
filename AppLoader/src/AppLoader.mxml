@@ -27,12 +27,12 @@
         private function urlLoader_completeHandler(event:Event):void {
             const urlLoader:URLLoader = event.currentTarget as URLLoader;
 
-            // In isolation because the loaded code may be compile with another flex version.
+            // In isolation because the loaded code might have been compiled with another flex version.
             const applicationDomain:ApplicationDomain = new ApplicationDomain(null);
 
             const lc:LoaderContext = new LoaderContext(false, applicationDomain);
             lc.allowCodeImport = true;
-            
+
             swfLoader.loaderContext = lc;
             swfLoader.load(urlLoader.data as ByteArray);
         }
